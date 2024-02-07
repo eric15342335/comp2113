@@ -1,5 +1,5 @@
 .vscode
-*.exe
-*.o
-*.pdf   # the question
-*.zip   # assignment submission
+**/*.exe
+**/*.o
+**/*.pdf   # the question
+**/*.zip   # assignment submission

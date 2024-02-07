@@ -35,16 +35,16 @@ else
     exe_prefix=".exe"
 fi
 
-for case in $p3_num
-do
-    echo question3-----"$case"
-    g++ -pedantic-errors -std=c++11 -o 3"$exe_prefix" 3.cpp
-    if [ -e 3"$exe_prefix" ]
-    then
+g++ -pedantic-errors -std=c++11 -o 3"$exe_prefix" 3.cpp
+if [ -e 3"$exe_prefix" ]
+then
+    for case in $p3_num
+    do
+        echo question3-----"$case"
         ./3"$exe_prefix" < SampleOutputs/P3/input3_"$case".txt > myoutput3_"$case".txt
         diff -Bw myoutput3_"$case".txt SampleOutputs/P3/output3_"$case".txt
-    fi
-done
+    done
+fi
 
 # cleanup
 rm myoutput*.txt
