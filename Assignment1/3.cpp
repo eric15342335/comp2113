@@ -35,7 +35,7 @@ int main(){
             a=n-c-b;
             // since the lower bound of b and c are too small, check a<b<c
             if ((a*a+b*b==c*c) && (a<b) && (b<c)){
-                cout << a << " " << b << " " << c << endl;
+                cout << a << " " << b << " " << c << "\n";
             }
         }
     }

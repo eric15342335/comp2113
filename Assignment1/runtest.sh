@@ -46,6 +46,18 @@ then
     done
 fi
 
+g++ -pedantic-errors -std=c++11 -o 3alt"$exe_prefix" 3alt.cpp
+if [ -e 3alt"$exe_prefix" ]
+then
+    for case in $p3_num
+    do
+        echo question3alt-----"$case"
+        ./3alt"$exe_prefix" < SampleOutputs/P3/input3_"$case".txt > myoutput3alt_"$case".txt
+        diff -Bw myoutput3alt_"$case".txt SampleOutputs/P3/output3_"$case".txt
+    done
+fi
+
 # cleanup
 rm myoutput*.txt
 rm 3"$exe_prefix"
+rm 3alt"$exe_prefix"
