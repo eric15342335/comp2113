@@ -2,13 +2,13 @@ import random
 
 characters = []
 for i in range(0, random.randint(5,100)):
-    choose_case = random.choice([0, 32])
+    choose_case = random.choice([0, 32])    # random upper/lower case
     characters.append(chr(random.randint(65+choose_case, 90+choose_case)))
-characters += ["!"]
+characters += ["!"] # end with "!"
 
 while True:
     a = random.randint(3,500)
-    if a%2 == 1 and a%13 == 1:
+    if a%2 == 1 and a%13 == 1:  # coprime with 26
         key1 = a
         break
 key2 = random.randint(1,100)

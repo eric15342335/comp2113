@@ -47,7 +47,7 @@ then
 fi
 
 # question 2
-p2_num="1 2 3 4"
+p2_num="1 2 3 4 5"
 
 for case in $p2_num
 do
@@ -59,6 +59,22 @@ done
 
 g++ -pedantic-errors -std=c++11 -o 2_test"$exe_prefix" P2/2.cpp P2/2_testcase.cpp
 ./2_test"$exe_prefix"
+
+# question 3
+# Makefile testing
+# <not used> -C specifies the directory to run the makefile
+cd P3
+make main3 test
+# Test recompilation when file is touched (updated last access time)
+touch random.cpp
+make main3 test
+touch random.h
+make main3 test
+touch main3.cpp
+make main3 test
+# Test clean
+make clean
+cd ..
 
 # cleanup
 rm myoutput*.txt

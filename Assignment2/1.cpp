@@ -122,11 +122,9 @@ char decryption(int key1, int key2, char letter){
 }
 
 int find_mmi(int a, int mod_value){
-    // find the modular multiplicative inverse a^-1
+    // find the modular multiplicative inverse a^-1 by brute force
     // such that a*a^-1 = 1 (mod mod_value)
-    // by brute force
-    // Note: this is not mathematically rigorous
-    // You should only use this in this program
+    // todo: proof this is correct
     for (int i = 1; i <= mod_value; i++){
         if (abs(a*i % mod_value) == 1){
             return i;
@@ -135,6 +133,8 @@ int find_mmi(int a, int mod_value){
     return -1; // indicate no mmi exists
     // which indicate a and mod_value are not coprime
     // in this program, it means that the key is invalid
+    // Note: This function should never return -1 as you should check their gcd() first
+    // before using find_mmi();
 }
 
 void convert_position_alphabet(char &letter){
