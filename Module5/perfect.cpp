@@ -5,20 +5,19 @@
 #include <iostream>
 using namespace std;
 
-bool isPerfect(int j){
-    int sum_factor = 0;
-    for (int factor = 1; factor<j; factor++){
-        if (j % factor == 0) {
-            sum_factor += factor;
-        }
-    }
-    return j == sum_factor;
+bool isPerfect(int j) {
+	int sum_factor = 0;
+	for (int factor = 1; factor < j; factor++) {
+		if (j % factor == 0) {
+			sum_factor += factor;
+		}
+	}
+	return j == sum_factor;
 }
 
 const int N = 1000;
 
-int main()
-{
+int main() {
 	cout << "For the integers from 1 to " << N << ":\n";
 
 	for (int j = 2; j <= N; ++j)

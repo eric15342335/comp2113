@@ -2,12 +2,11 @@
 
 using namespace std;
 
-int main()
-{
-    int i;
-    char c;
+int main() {
+	int i;
+	char c;
 
-    cout << &i << ' ' << (void *)&c << endl;
+	cout << &i << ' ' << (void *)&c << endl;
 
-    return 0;
+	return 0;
 }

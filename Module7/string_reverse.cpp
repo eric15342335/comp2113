@@ -16,26 +16,20 @@ string reverse( string s )
 }
 */
 
-
 // recursive version?
-string reverse(string s)
-{
-    if (s.length() < 2)
-        return s;
-    else
-        return s[s.length() - 1] + reverse(s.substr(0, s.length() - 1));
-        // string.substr(starting_index, length) usage
+string reverse(string s) {
+	if (s.length() < 2)
+		return s;
+	else
+		return s[s.length() - 1] + reverse(s.substr(0, s.length() - 1));
+	// string.substr(starting_index, length) usage
 }
 
-
-int main()
-{
+int main() {
 	string s;
 	cin >> s;
 
 	cout << "String in reverse = " << reverse(s) << endl;
 
-
 	return 0;
-
 }

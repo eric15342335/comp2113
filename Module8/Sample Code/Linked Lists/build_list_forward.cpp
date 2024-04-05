@@ -2,17 +2,14 @@
 
 using namespace std;
 
-struct Node
-{
+struct Node {
 	int info;
 	Node * next;
 };
 
-void print_list(Node * head)
-{
-    Node * current = head;
-	while (current != NULL)
-	{
+void print_list(Node * head) {
+	Node * current = head;
+	while (current != NULL) {
 		// process the current node, e.g., print the content
 		cout << current->info << " -> ";
 		current = current->next;
@@ -20,9 +17,7 @@ void print_list(Node * head)
 	cout << "NULL\n";
 }
 
-void tail_insert(Node * & head,
-	Node * & tail, int num)
-{
+void tail_insert(Node *& head, Node *& tail, int num) {
 	Node * p = new Node;
 	p->info = num;
 	p->next = NULL;
@@ -37,23 +32,20 @@ void tail_insert(Node * & head,
 	}
 }
 
+int main() {
+	Node *head = NULL, *tail = NULL;
+	int num = 0;
 
+	// build linked list backward
+	cout << "input integers (-999 to end): ";
+	cin >> num;
+	while (num != -999) {
+		tail_insert(head, tail, num);
+		cin >> num;
+	}
 
-int main()
-{
-    Node * head = NULL, * tail = NULL;
-    int num = 0;
+	// print the items in the linked list
+	print_list(head);
 
-    // build linked list backward
-    cout << "input integers (-999 to end): ";
-    cin >> num;
-    while ( num != -999 ) {
-        tail_insert(head, tail, num);
-        cin >> num;
-    }
-
-    // print the items in the linked list
-    print_list(head);
-
-    return 0;
+	return 0;
 }
