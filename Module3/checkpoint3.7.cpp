@@ -9,12 +9,12 @@ the program should print:
 #include <iostream>
 using namespace std;
 
-int main(){
-    int x, y=10000;
+int main() {
+    int x, y = 10000;
     cin >> x;
-    for (int i=5; i>0; i--){
+    for (int i = 5; i > 0; i--) {
         cout << x / y;
-        if (i>1){
+        if (i > 1) {
             cout << ",";
         }
         x %= y;

@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int main(){
+int main() {
     int input;
     cin >> input;
     int * set = new int[input];
@@ -26,5 +26,4 @@ int main(){
     }
     cout << "The mode of the set is " << num1;
     delete[] set;
-    
 }

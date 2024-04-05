@@ -2,8 +2,7 @@
 #include <string>
 using namespace std;
 
-int main()
-{
+int main() {
     string word1, word2, word3;
     cout << "Please input a sentence: " << endl;
 

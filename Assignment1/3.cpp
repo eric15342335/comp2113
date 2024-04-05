@@ -1,13 +1,13 @@
-//eric15342335
-//problem 3
-//Write a C++ program which takes one user input integer n (0 ≤ n ≤ 100000),
-//and find all right-angled triangles with
-//integer side lengths whose perimeter is n
+// eric15342335
+// problem 3
+// Write a C++ program which takes one user input integer n (0 ≤ n ≤ 100000),
+// and find all right-angled triangles with
+// integer side lengths whose perimeter is n
 #include <iostream>
 using namespace std;
 
-int main(){
-    int n,a,b,c;
+int main() {
+    int n, a, b, c;
     cin >> n;
     // given a+b+c=n and a<=b<=c
     // a+b>=c (triangle inequality)
@@ -30,11 +30,11 @@ int main(){
     // b+c=n-a -> 2b<n-a, when a increase b decrease
     // a+c=n-b -> 2c>=n-b, when b decrease c decrease
     // which means descending order of b and c
-    for (c=n/2;c>n/3;c--){
-        for (b=c-1;b>n/4;b--){
-            a=n-c-b;
+    for (c = n / 2; c > n / 3; c--) {
+        for (b = c - 1; b > n / 4; b--) {
+            a = n - c - b;
             // since the lower bound of b and c are too small, check a<b<c
-            if ((a*a+b*b==c*c) && (a<b) && (b<c)){
+            if ((a * a + b * b == c * c) && (a < b) && (b < c)) {
                 cout << a << " " << b << " " << c << "\n";
             }
         }
