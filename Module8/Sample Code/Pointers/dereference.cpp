@@ -2,8 +2,7 @@
 
 using namespace std;
 
-int main()
-{
+int main() {
     int x = 10, y;
     int * ptr = &x;
 

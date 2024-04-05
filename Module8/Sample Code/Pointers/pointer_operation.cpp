@@ -2,18 +2,16 @@
 #include <iostream>
 using namespace std;
 
-int main()
-{
+int main() {
     int a[5];
-  
+
     for (int i = 0; i < 5; ++i) {
-        a[i] = 2*i;
+        a[i] = 2 * i;
     }
 
- 
-    int * p = a, * q = a + 5;
+    int *p = a, *q = a + 5;
 
-    while ( p != q ) {
+    while (p != q) {
         cout << *p << ' ';
         ++p;
     }

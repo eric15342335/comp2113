@@ -2,7 +2,7 @@
 using namespace std;
 
 // ### Implement birthday() here ###
-void birthday(int& b){
+void birthday(int & b) {
     // pass by reference
     // int& b vs int &b <-- no difference
     b++;
@@ -10,7 +10,7 @@ void birthday(int& b){
 
 // ###
 
-int main(){
+int main() {
     int myAge;
     cin >> myAge;
     birthday(myAge);

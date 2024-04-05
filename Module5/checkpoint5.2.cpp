@@ -1,33 +1,33 @@
 #include <iostream>
 using namespace std;
 
-void g(int& k);
+void g(int & k);
 
-int main(){
+int main() {
     int y = 9;
     int x = 7;
     int i = 0;
 
-    while (i < 3){
-        if (i % 2 == 0){
+    while (i < 3) {
+        if (i % 2 == 0) {
             g(x);
             i++;
         }
-        else{
+        else {
             g(y);
             i++;
         }
     }
 }
 
-void g(int& k){
+void g(int & k) {
     static int num = 6;
 
-    if (k % 2 == 0){
+    if (k % 2 == 0) {
         num += 2;
         k = k + 6;
     }
-    else{
+    else {
         num -= 2;
         k = k - 6;
     }

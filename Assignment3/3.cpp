@@ -8,7 +8,7 @@ struct Node {
     Node * nextptr;
 };
 
-void build_sorted_linkedlist(Node * &headptr1, int input) {
+void build_sorted_linkedlist(Node *& headptr1, int input) {
     // insert a new item 'input' into an existing sorted linked list
     // with head pointer headptr1
     Node * previous = headptr1;
@@ -18,7 +18,8 @@ void build_sorted_linkedlist(Node * &headptr1, int input) {
                 if (previous->nextptr->value < input) {
                     previous = previous->nextptr;
                 }
-                else break;
+                else
+                    break;
             }
             Node * next = previous->nextptr;
             Node * current = new Node;
@@ -43,7 +44,7 @@ void build_sorted_linkedlist(Node * &headptr1, int input) {
     }
 }
 
-void linkedlist_int(Node * &headptr1) {
+void linkedlist_int(Node *& headptr1) {
     // we expect headptr1 to be nullptr
     // otherwise, we will have memory leak!
     string line;
@@ -78,7 +79,7 @@ void print_linked_list(Node * headptr1) {
     cout << endl;
 }
 
-void remove_dups_negative_nums(Node * &headptr1) {
+void remove_dups_negative_nums(Node *& headptr1) {
     // headptr1 linked list must be sorted ascendingly
     Node * current = headptr1;
     while (current != nullptr && current->nextptr != nullptr) {
@@ -99,7 +100,7 @@ void remove_dups_negative_nums(Node * &headptr1) {
         if (headptr1->value < 0) {
             Node * next = headptr1;
             headptr1 = headptr1->nextptr; // set the new head pointer
-            delete next; // free up memory
+            delete next;                  // free up memory
         }
         else {
             break;
@@ -168,7 +169,7 @@ int main() {
         current = current->nextptr;
     }
     remove_dups_negative_nums(node1head);
-    //recursive_remove_dups(node1head);
+    // recursive_remove_dups(node1head);
     print_linked_list(node1head);
     return 0;
 }

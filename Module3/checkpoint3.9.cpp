@@ -18,11 +18,12 @@ The program output the following:
 #include <iostream>
 using namespace std;
 
-int main(){
-    double values, inputs; int count = 0;
-    while (true){
+int main() {
+    double values, inputs;
+    int count = 0;
+    while (true) {
         cin >> inputs;
-        if (inputs == -1){
+        if (inputs == -1) {
             break;
         }
         else {
@@ -30,8 +31,8 @@ int main(){
             count += 1;
         }
     }
-    if (count){
-        cout << values/count;
+    if (count) {
+        cout << values / count;
     }
     return 0;
 }

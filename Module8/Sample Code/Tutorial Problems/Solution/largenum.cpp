@@ -6,18 +6,15 @@
 
 using namespace std;
 
-struct Node
-{
+struct Node {
     int value;
     Node * next;
 };
 
 // output the linked list
-void print_list(Node * head)
-{
+void print_list(Node * head) {
     Node * current = head;
-    while (current != NULL)
-    {
+    while (current != NULL) {
         // process the current node, e.g., print the content
         cout << current->value << " -> ";
         current = current->next;
@@ -26,11 +23,9 @@ void print_list(Node * head)
 }
 
 // output the large number stored in the linked list
-void print_num(Node * head)
-{
+void print_num(Node * head) {
     Node * current = head;
-    while (current != NULL)
-    {
+    while (current != NULL) {
         if (current == head)
             cout << current->value;
         else
@@ -40,8 +35,7 @@ void print_num(Node * head)
 }
 
 // insert a value as a node to the head of a linked list
-void head_insert(Node * & head, int v)
-{
+void head_insert(Node *& head, int v) {
     Node * p = new Node;
     p->value = v;
     p->next = head;
@@ -49,8 +43,7 @@ void head_insert(Node * & head, int v)
 }
 
 // delete the head node from a linked list
-void delete_head( Node * & head)
-{
+void delete_head(Node *& head) {
     if (head != NULL) {
         Node * p = head;
         head = head->next;
@@ -59,10 +52,8 @@ void delete_head( Node * & head)
 }
 
 // free an entire linked list
-void delete_list(Node * & head)
-{
-    while ( head != NULL )
-    {
+void delete_list(Node *& head) {
+    while (head != NULL) {
         delete_head(head);
     }
 }
@@ -70,20 +61,19 @@ void delete_list(Node * & head)
 // double the capacity of an array
 // array: input array
 // size: original size of array, updated to new size of array
-void grow_array( char * & array, int & size )
-{
+void grow_array(char *& array, int & size) {
     if (array == NULL)
         return;
 
     int newSize = size * 2;
 
     // doubled the size of the array;
-    char * tmp = new char [ newSize ];
+    char * tmp = new char[newSize];
     // copy original contents
     for (int i = 0; i < size; ++i)
         tmp[i] = array[i];
 
-    delete [] array;
+    delete[] array;
 
     array = tmp;
     size = newSize;
@@ -94,19 +84,17 @@ void grow_array( char * & array, int & size )
 // use dynamic array to store the digits
 // digits:  character array that stores the digits of the number
 // numDigits: number of digits read from input
-void input_num(char * & digits, int & numDigits)
-{
+void input_num(char *& digits, int & numDigits) {
     int arraysize = 32;
-    digits = new char [arraysize];
+    digits = new char[arraysize];
     char c;
     int numRead = 0;
 
     // read each digit as a character until a white space is hit
     c = cin.get();
-    while (!isspace(c))
-    {
+    while (!isspace(c)) {
         if (numRead >= arraysize)
-            grow_array( digits, arraysize );
+            grow_array(digits, arraysize);
 
         digits[numRead] = c;
         numRead++;
@@ -115,7 +103,6 @@ void input_num(char * & digits, int & numDigits)
     }
 
     numDigits = numRead;
-
 }
 
 // get a large integer from user input
@@ -124,25 +111,24 @@ void input_num(char * & digits, int & numDigits)
 // e.g., if the input is 43323000089500012, the linked list is
 // 43 -> 32300 -> 895 -> 12 -> NULL
 //
-Node * create_num_list()
-{
+Node * create_num_list() {
     // TASK 1a: declare a pointer pointing to the head of the link list
     Node * head = NULL;
 
     string str;
-    char * digits = NULL;  // a dynamic array for storing an input number
+    char * digits = NULL; // a dynamic array for storing an input number
     int numDigits;
     int val;
 
     // get a number from the user
-    input_num( digits, numDigits);
+    input_num(digits, numDigits);
 
     // scan the digits in reverse, and create a list of nodes for
     // the value of every 5 digits
     str.clear();
-    for (int i = numDigits-1; i >=0; --i) {
+    for (int i = numDigits - 1; i >= 0; --i) {
         str = digits[i] + str;
-        if (str.length()==5) {
+        if (str.length() == 5) {
             val = atoi(str.c_str());
 
             // TASK 1b: insert a value as a node to the head of the linked list
@@ -161,27 +147,22 @@ Node * create_num_list()
     }
 
     if (digits != NULL) {
-        delete [] digits;
-
+        delete[] digits;
     }
 
     // TASK 1d: return the pointer to the linked list
     return head;
 }
 
-
-
 // return the length of a linked list
-int list_length(Node * head)
-{
- 	// TASK 3: Modify this print function to one that
-	// count the number of nodes in a linked list
+int list_length(Node * head) {
+    // TASK 3: Modify this print function to one that
+    // count the number of nodes in a linked list
 
     int num = 0;
 
     Node * current = head;
-    while (current != NULL)
-    {
+    while (current != NULL) {
         // process the current node, e.g., print the content
         ++num;
         current = current->next;
@@ -191,13 +172,12 @@ int list_length(Node * head)
 }
 
 // return if the number n1 is larger than n2
-bool larger(Node * n1, Node * n2)
-{
+bool larger(Node * n1, Node * n2) {
     int len1 = list_length(n1);
     int len2 = list_length(n2);
 
-	// TASK 4a: handle the case
-	// when the list lengths are different
+    // TASK 4a: handle the case
+    // when the list lengths are different
     if (len1 > len2)
         return true;
     else if (len1 < len2)
@@ -205,7 +185,7 @@ bool larger(Node * n1, Node * n2)
 
     // the two lists are of equal length
 
-    Node * curr1 = n1, * curr2 = n2;
+    Node *curr1 = n1, *curr2 = n2;
 
     while (curr1 != NULL) {
         if (curr1->value > curr2->value)
@@ -214,7 +194,7 @@ bool larger(Node * n1, Node * n2)
             return false;
 
         // TASK 4b: advance curr1, curr2
-		// to point to the next nodes
+        // to point to the next nodes
         curr1 = curr1->next;
         curr2 = curr2->next;
     }
@@ -222,15 +202,13 @@ bool larger(Node * n1, Node * n2)
     return false;
 }
 
-
-int main()
-{
-    Node * n1, * n2;
+int main() {
+    Node *n1, *n2;
 
     cout << "expr> ";
     n1 = create_num_list();
-    cin.get();       // skip the '>' sign
-    cin.get();       // the space after the '>' sign
+    cin.get(); // skip the '>' sign
+    cin.get(); // the space after the '>' sign
     n2 = create_num_list();
 
     // TASK 2: call print_list() on n1 and n2 for checking

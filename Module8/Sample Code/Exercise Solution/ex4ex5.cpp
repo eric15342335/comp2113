@@ -2,17 +2,14 @@
 
 using namespace std;
 
-struct Node
-{
+struct Node {
     int info;
     Node * next;
 };
 
-void print_list(Node * head)
-{
+void print_list(Node * head) {
     Node * current = head;
-    while (current != NULL)
-    {
+    while (current != NULL) {
         // process the current node, e.g., print the content
         cout << current->info << " -> ";
         current = current->next;
@@ -20,8 +17,7 @@ void print_list(Node * head)
     cout << "NULL\n";
 }
 
-void head_insert(Node * & head, int num)
-{
+void head_insert(Node *& head, int num) {
     Node * p = new Node;
     p->info = num;
     p->next = head;
@@ -30,26 +26,23 @@ void head_insert(Node * & head, int num)
 
 // assume that after points to a node
 // i.e., after not equals null
-void insert( Node * after, int num )
-{
+void insert(Node * after, int num) {
     Node * p = new Node;
     p->info = num;
-    p->next= after->next;
+    p->next = after->next;
     after->next = p;
 }
 
 // return the node which is the last one in
 // the list that is smaller than num
-Node * find_prev( Node * head, int num )
-{
-    if (head == NULL || head->info >= num )
+Node * find_prev(Node * head, int num) {
+    if (head == NULL || head->info >= num)
         return NULL;
 
     // at least one node in the list now
     Node * current = head;
 
-    while (current->next != NULL)
-    {
+    while (current->next != NULL) {
         if (current->next->info >= num)
             return current;
         else
@@ -59,12 +52,10 @@ Node * find_prev( Node * head, int num )
     return current;
 }
 
-Node * find( Node * head, int num )
-{
+Node * find(Node * head, int num) {
     Node * current = head;
 
-    while (current != NULL)
-    {
+    while (current != NULL) {
         if (current->info == num)
             return current;
         else
@@ -74,10 +65,8 @@ Node * find( Node * head, int num )
     return NULL;
 }
 
-void delete_head( Node * & head)
-{
-    if (head != NULL)
-    {
+void delete_head(Node *& head) {
+    if (head != NULL) {
         Node * p = head;
         head = head->next;
         delete p;
@@ -86,24 +75,21 @@ void delete_head( Node * & head)
 
 // assume that after points to a node
 // i.e., after not equals null
-void delete_node( Node * after)
-{
+void delete_node(Node * after) {
     Node * p = after->next;
     after->next = p->next;
     delete p;
 }
 
-int get_option()
-{
+int get_option() {
     int c;
-    cout << endl << "enter option (1: insert; 2: delete; 3: reverse; 4: get; 0: quit) ";
+    cout << endl
+         << "enter option (1: insert; 2: delete; 3: reverse; 4: get; 0: quit) ";
     cin >> c;
     return c;
 }
 
-
-void insert_sorted( Node * & head, int num)
-{
+void insert_sorted(Node *& head, int num) {
     Node * after_this = find_prev(head, num);
     if (after_this == NULL)
         head_insert(head, num);
@@ -111,30 +97,27 @@ void insert_sorted( Node * & head, int num)
         insert(after_this, num);
 }
 
-
-void option_insert(Node * & head)
-{
+void option_insert(Node *& head) {
     int num;
-    cout << endl << "number to insert: ";
+    cout << endl
+         << "number to insert: ";
     cin >> num;
 
-    insert_sorted( head, num );
+    insert_sorted(head, num);
 }
 
-void option_delete(Node * & head)
-{
+void option_delete(Node *& head) {
     int num;
-    cout << endl << "number to delete: ";
+    cout << endl
+         << "number to delete: ";
     cin >> num;
 
     Node * p = find(head, num);
 
-    if (p == NULL)
-    {
+    if (p == NULL) {
         cout << "item not found!" << endl;
     }
-    else
-    {
+    else {
         // find the previous node, so that we can delete
         p = find_prev(head, num);
         if (p == NULL)
@@ -144,23 +127,19 @@ void option_delete(Node * & head)
     }
 }
 
-void delete_list(Node * & head)
-{
+void delete_list(Node *& head) {
     cout << "deleting list... " << endl;
-    while ( head != NULL )
-    {
+    while (head != NULL) {
         delete_head(head);
     }
 }
 
-void reverse( Node * & head )
-{
+void reverse(Node *& head) {
     Node * curr = head;
     Node * prev = NULL;
     Node * next;
 
-    while ( curr != NULL )
-    {
+    while (curr != NULL) {
         next = curr->next;
         curr->next = prev;
         prev = curr;
@@ -172,8 +151,7 @@ void reverse( Node * & head )
 
 // return the k-th item
 // return NULL if item not exists
-Node * get_item(Node * head, int k)
-{
+Node * get_item(Node * head, int k) {
     Node * current = head;
     int idx = 0;
     while (current != NULL) {
@@ -185,10 +163,10 @@ Node * get_item(Node * head, int k)
     return NULL;
 }
 
-void option_get(Node * head)
-{
+void option_get(Node * head) {
     int k;
-    cout << endl << "enter 0-based position for an item: ";
+    cout << endl
+         << "enter 0-based position for an item: ";
     cin >> k;
 
     Node * p = get_item(head, k);
@@ -200,26 +178,22 @@ void option_get(Node * head)
     cout << endl;
 }
 
-int main()
-{
-    Node * head = NULL, * after_this;
+int main() {
+    Node *head = NULL, *after_this;
     int num = 0;
 
     // build sorted linked list
     cout << "input integers (-999 to end): ";
     cin >> num;
-    while ( num != -999 )
-    {
-        insert_sorted( head, num );
+    while (num != -999) {
+        insert_sorted(head, num);
         cin >> num;
     }
     print_list(head);
 
     int c;
-    while (c = get_option())
-    {
-        switch (c)
-        {
+    while (c = get_option()) {
+        switch (c) {
         case 1:
             // insert a node
             option_insert(head);

@@ -2,14 +2,13 @@
 #include <iostream>
 using namespace std;
 
-int main()
-{
+int main() {
     int n;
     cout << "Input the size of the array: ";
     cin >> n;
 
     // create a dynamic array
-    int * p = new int [n];
+    int * p = new int[n];
 
     cout << "Enter " << n << " numbers: ";
     for (int i = 0; i < n; ++i) {
@@ -23,7 +22,7 @@ int main()
     cout << endl;
 
     // free memory allocated to array
-    delete [] p;
+    delete[] p;
 
     return 0;
 }

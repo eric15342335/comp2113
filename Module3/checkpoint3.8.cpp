@@ -27,10 +27,11 @@ Obese: 30 or greater
 using namespace std;
 
 int main() {
-    int weight; double height;
+    int weight;
+    double height;
     // take two inputs
     cin >> weight >> height;
-    cout << "Your BMI = " << weight/(height*height) << endl;
+    cout << "Your BMI = " << weight / (height * height) << endl;
     cout << "BMI VALUES" << endl;
     cout << "Underweight: less than 18.5" << endl;
     cout << "Normal: between 18.5 and 24.9" << endl;

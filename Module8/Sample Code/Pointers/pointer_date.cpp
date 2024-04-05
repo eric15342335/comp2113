@@ -2,16 +2,14 @@
 #include <iomanip>
 using namespace std;
 
-struct Date
-{
+struct Date {
     int day;
     int month;
     int year;
 };
 
-int main()
-{
-    Date today = { 26, 2, 2015 };
+int main() {
+    Date today = {26, 2, 2015};
 
     cout << setfill('0');
 
@@ -20,7 +18,7 @@ int main()
          << setw(2) << today.month << '/'
          << setw(4) << today.year << endl;
 
-    Date * dPtr = &today;       // dPtr now points to today
+    Date * dPtr = &today; // dPtr now points to today
 
     // access structure member using the dereference operator and dot operator
     cout << setw(2) << (*dPtr).day << '/'
@@ -31,7 +29,6 @@ int main()
     cout << setw(2) << dPtr->day << '/'
          << setw(2) << dPtr->month << '/'
          << setw(4) << dPtr->year << endl;
-
 
     return 0;
 }
