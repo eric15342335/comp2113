@@ -1,0 +1,26 @@
+name: clang-format pull request
+
+on:
+  [workflow_dispatch]
+
+jobs:
+  clang-format:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Create pull request
+        run: |
+          ls -la
+          ls ../ -la
+          rand_char=$(openssl rand -hex 3)
+          git checkout -b clang-format-$rand_char
+          find . -name '*.cpp' -o -name '*.h' -print0 | xargs -0 clang-format -i
+          git add --all
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+          git commit -m "Format: Run clang-format on main branch" -m "Created by Github action"
+          git push -u origin clang-format-$rand_char
+          gh pr create -B main -H clang-format-$rand_char --title 'Format: Run clang-format on main branch' --body 'Created by Github action'
+        env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
