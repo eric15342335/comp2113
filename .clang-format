@@ -3,6 +3,7 @@ Standard: Cpp11
 Language: Cpp
 UseTab: Never
 IndentWidth: '4'
+ColumnLimit: 0
 
 BreakBeforeBraces: Custom
 BraceWrapping:
@@ -10,6 +11,9 @@ BraceWrapping:
 
 DerivePointerAlignment: 'false'
 PointerAlignment: Middle
+
+IncludeBlocks: Preserve
+SortIncludes: Never
 
 ReflowComments: 'true'
 
