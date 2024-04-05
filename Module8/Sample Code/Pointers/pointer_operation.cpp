@@ -2,22 +2,20 @@
 #include <iostream>
 using namespace std;
 
-int main()
-{
-    int a[5];
-  
-    for (int i = 0; i < 5; ++i) {
-        a[i] = 2*i;
-    }
+int main() {
+	int a[5];
 
- 
-    int * p = a, * q = a + 5;
+	for (int i = 0; i < 5; ++i) {
+		a[i] = 2 * i;
+	}
 
-    while ( p != q ) {
-        cout << *p << ' ';
-        ++p;
-    }
-    cout << endl;
+	int *p = a, *q = a + 5;
 
-    return 0;
+	while (p != q) {
+		cout << *p << ' ';
+		++p;
+	}
+	cout << endl;
+
+	return 0;
 }
