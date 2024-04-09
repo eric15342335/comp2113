@@ -36,7 +36,6 @@ jobs:
       - name: Run doxygen
         run: |
           sudo apt-get update -y
-          sudo apt-get upgrade -y
           sudo apt-get install doxygen graphviz -y
           doxygen Assignment3/*
       - name: Upload artifact
