@@ -32,17 +32,14 @@ void appendCar(Car *&head, string id) {
         head = new Car;
         head->id = id;
         head->next = NULL;
-    }
-    else {
+    } else {
         Car *current = head;
-        // go to the end of the linked list
         while (current->next != NULL) {
             current = current->next;
         }
-        Car * append = new Car;
-        append->id = id;
-        append->next = NULL;
-        current->next = append;
+        current->next = new Car;
+        current->next->id = id;
+        current->next->next = NULL;
     }
 }
 
