@@ -3,14 +3,14 @@
 #include <stdlib.h>
 
 struct Employee {
-    char Name[100];
-    char Position[100];
-    int Salary;
+        char Name[100];
+        char Position[100];
+        int Salary;
 };
 
 typedef struct Employee Employee;
 
-void setEmployee(char n[], char p[], int sal, Employee *e){
+void setEmployee(char n[], char p[], int sal, Employee * e) {
     // strcpy parameters are (destination, source)
     strcpy(e->Name, n);
     strcpy(e->Position, p);
@@ -26,13 +26,13 @@ void showInfo(Employee e) {
 int main() {
     int numOfEmployee;
     scanf("%d", &numOfEmployee);
-    Employee *e;
+    Employee * e;
     e = (Employee *)malloc(numOfEmployee * sizeof(Employee));
     for (int i = 0; i < numOfEmployee; i++) {
         char n[100], p[100];
         int sal;
-        scanf("%s%s%d",n,p,&sal);
-        setEmployee(n,p,sal,&e[i]);
+        scanf("%s%s%d", n, p, &sal);
+        setEmployee(n, p, sal, &e[i]);
         // Instead of &e[i], e+i also works since it is an array.
         // What is e+i? It is the address of the i-th element of the array.
         // But why we can directly add i to it? isnt the array address is affected by the size of the struct?

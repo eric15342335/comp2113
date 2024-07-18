@@ -7,7 +7,7 @@ void print(vector<string> v) {
     // vector has two methods to print itself:
     // either use an iterator or use the [] operator
     vector<string>::iterator vitr;
-    cout << "Items: "; 
+    cout << "Items: ";
     for (vitr = v.begin(); vitr != v.end(); vitr++) {
         cout << *vitr;
         if (vitr != v.end() - 1) {

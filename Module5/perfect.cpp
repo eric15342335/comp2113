@@ -5,9 +5,9 @@
 #include <iostream>
 using namespace std;
 
-bool isPerfect(int j){
+bool isPerfect(int j) {
     int sum_factor = 0;
-    for (int factor = 1; factor<j; factor++){
+    for (int factor = 1; factor < j; factor++) {
         if (j % factor == 0) {
             sum_factor += factor;
         }
@@ -17,15 +17,14 @@ bool isPerfect(int j){
 
 const int N = 1000;
 
-int main()
-{
-	cout << "For the integers from 1 to " << N << ":\n";
+int main() {
+    cout << "For the integers from 1 to " << N << ":\n";
 
-	for (int j = 2; j <= N; ++j)
-		if (isPerfect(j))
-			cout << j << " is perfect\n";
+    for (int j = 2; j <= N; ++j)
+        if (isPerfect(j))
+            cout << j << " is perfect\n";
 
-	cout << endl;
+    cout << endl;
 
-	return 0;
+    return 0;
 }

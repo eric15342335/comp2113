@@ -3,11 +3,11 @@
 #include <cstdlib>
 using namespace std;
 
-int random_num(void){
+int random_num(void) {
     return rand() % 100;
 }
 
-int main(){
+int main() {
     srand(time(NULL));
     for (int i = 0; i < 10; i++) {
         cout << "Random number: " << random_num() << endl;

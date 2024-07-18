@@ -4,10 +4,10 @@
 using namespace std;
 
 class student {
-  public:
-    string name;
-    string major;
-    int number;
+    public:
+        string name;
+        string major;
+        int number;
 };
 
 int main() {

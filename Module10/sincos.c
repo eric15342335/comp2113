@@ -3,13 +3,12 @@
 #define PI 3.14159265
 
 // Task 2. Build the GetSinCos() function
-void GetSinCos(int degree, double *dSin, double *dCos) {
+void GetSinCos(int degree, double * dSin, double * dCos) {
     *dSin = sin(degree * PI / 180);
     *dCos = cos(degree * PI / 180);
 }
 
-int main()
-{
+int main() {
     double dSin;
     double dCos;
     int degree;

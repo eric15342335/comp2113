@@ -6,10 +6,10 @@
 using namespace std;
 
 bool passable(vector<vector<int>> planks, int start_row, int start_column, int row_size, int column_size) {
-    if (0 <= start_row && start_row <= row_size-1 &&
-        0 <= start_column && start_column <= column_size-1) {
+    if (0 <= start_row && start_row <= row_size - 1 &&
+        0 <= start_column && start_column <= column_size - 1) {
         if (planks[start_row][start_column]) {
-            if (start_column == column_size-1) {
+            if (start_column == column_size - 1) {
                 return true;
             }
             else {
@@ -20,11 +20,10 @@ bool passable(vector<vector<int>> planks, int start_row, int start_column, int r
 
                 planks[start_row][start_column] = 0;
 
-                bool result = (
-                    passable(planks, start_row, start_column + 1, row_size, column_size) ||
-                    passable(planks, start_row + 1, start_column, row_size, column_size) ||
-                    passable(planks, start_row - 1, start_column, row_size, column_size) ||
-                    passable(planks, start_row, start_column - 1, row_size, column_size));
+                bool result = (passable(planks, start_row, start_column + 1, row_size, column_size) ||
+                               passable(planks, start_row + 1, start_column, row_size, column_size) ||
+                               passable(planks, start_row - 1, start_column, row_size, column_size) ||
+                               passable(planks, start_row, start_column - 1, row_size, column_size));
 
                 planks[start_row][start_column] = 1;
 

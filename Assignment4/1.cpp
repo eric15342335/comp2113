@@ -18,8 +18,8 @@ int main(void) {
         }
     }
     struct Occurrence {
-        std::string bigram[2];
-        unsigned int count;
+            std::string bigram[2];
+            unsigned int count;
     };
 
     std::vector<Occurrence> occurrences;
@@ -28,8 +28,7 @@ int main(void) {
             bool found = false;
             for (unsigned int k = 0; k < occurrences.size(); k++) {
                 if (occurrences[k].bigram[0] == inputs[i].substr(j, 1) &&
-                    occurrences[k].bigram[1] == inputs[i].substr(j + 1, 1)
-                    ) {
+                    occurrences[k].bigram[1] == inputs[i].substr(j + 1, 1)) {
                     occurrences[k].count++;
                     found = true;
                     break;
