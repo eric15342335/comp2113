@@ -15,7 +15,7 @@ jobs:
           ls ../ -la
           rand_char=$(openssl rand -hex 3)
           git checkout -b clang-format-$rand_char
-          clang-format -i *.cpp *.h
+          clang-format -i **/*.cpp **/*.c --verbose
           git add --all
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
