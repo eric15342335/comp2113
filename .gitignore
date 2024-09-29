@@ -2,3 +2,7 @@
 **/*.exe
 **/*.o
 **/*.zip   # assignment submission
+
+# Doxygen generated files
+html/
+latex/
