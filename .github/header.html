@@ -37,7 +37,10 @@ $extrastylesheet
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-V187TY0SPN');
+  gtag('config', 'G-V187TY0SPN', {
+    'cookie_flags': 'SameSite=None; Secure',
+    'cookie_domain': 'eric15342335.github.io'
+  });
 </script>
 <!-- End Google Analytics -->
 
@@ -55,7 +58,7 @@ $extrastylesheet
 <!-- GoatCounter -->
 <script async fetchpriority="low"
   data-goatcounter="https://eric310.goatcounter.com/count"
-  src="https://gc.zgo.at/count.js"></script>
+  src="/src/thirdparty/count.js"></script>
 <!-- End GoatCounter -->
 
 </head>
